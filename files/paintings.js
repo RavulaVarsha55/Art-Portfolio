@@ -18,5 +18,10 @@ window.paintings = [
     src: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
     title: "Sky and Hills",
     date: "Starter Image"
+  },
+  {
+    src: "files/p1.heic",
+    title: "Sky and Hills",
+    date: "12/12/2024"
   }
 ];
