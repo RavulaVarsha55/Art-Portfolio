@@ -7,39 +7,81 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Patrick+Hand&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito:wght@400;600;700&family=Caveat:wght@500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="hero">
+    <header class="hero" id="top">
       <div class="overlay"></div>
-      <div class="hero-content">
-        <p class="tag">Handmade Paintings</p>
-        <p class="intro">
-          A soft gallery for my painting journey.
-        </p>
-        <a class="btn" href="#gallery">View Gallery</a>
+      <div class="floating-orbs" aria-hidden="true">
+        <span></span><span></span><span></span>
       </div>
+
+      <div class="hero-content">
+        <p class="tag">Varsha's Canvas World</p>
+        <h1>Whispers of Wind and Color</h1>
+        <p class="intro">A hand-painted collection inspired by quiet fields, bright skies, and gentle wonder.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#gallery">Enter Gallery</a>
+          <a class="btn btn-secondary" href="#about">About The Artist</a>
+        </div>
+      </div>
+
+      <div class="hero-grass" aria-hidden="true"></div>
     </header>
 
     <main>
-      <section id="gallery" class="gallery-section">
-        <h2>Gallery</h2>
-        <p class="subtext">Click any painting to view larger.</p>
+      <section id="about" class="story-panel section-card">
+        <div>
+          <p class="mini-label">Studio Notes</p>
+          <h2>Paintings from moments I wanted to keep forever.</h2>
+          <p>
+            This portfolio is my personal museum of color, memory, and mood. Every artwork captures a season,
+            a place, or a feeling I did not want to forget.
+          </p>
+        </div>
+        <div class="stats-grid">
+          <article>
+            <h3>Palette</h3>
+            <p>Nature greens, sky blues, and warm sunlight tones.</p>
+          </article>
+          <article>
+            <h3>Medium</h3>
+            <p>Traditional painting, photographed and curated online.</p>
+          </article>
+          <article>
+            <h3>Mood</h3>
+            <p>Soft, dreamy, and storybook-inspired compositions.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="gallery" class="gallery-section section-card">
+        <div class="gallery-head">
+          <p class="mini-label">Collection</p>
+          <h2>Gallery</h2>
+          <p class="subtext">Click any painting to view larger.</p>
+        </div>
         <div id="galleryGrid" class="gallery-grid"></div>
+      </section>
+
+      <section class="quote-strip" aria-label="Artist quote">
+        <p>
+          "When the wind moves through grass, I hear stories. I paint before they fade."
+        </p>
       </section>
     </main>
 
     <div id="lightbox" class="lightbox hidden" aria-hidden="true">
-      <button id="closeLightbox" class="close-btn" aria-label="Close image">×</button>
+      <button id="closeLightbox" class="close-btn" aria-label="Close image">x</button>
       <img id="lightboxImg" src="" alt="Expanded painting" />
       <p id="lightboxCaption"></p>
     </div>
 
     <footer>
-      <p>Made with HTML, CSS, JS • Hosted on GitHub Pages</p>
+      <p>Made with HTML, CSS, JS | Hosted on GitHub Pages</p>
     </footer>
 
     <script src="files/paintings.js"></script>
