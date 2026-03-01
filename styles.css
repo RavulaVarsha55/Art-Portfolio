@@ -1,0 +1,215 @@
+:root {
+  --sky: #cdeffd;
+  --mist: #f7fbff;
+  --forest: #4f7a66;
+  --leaf: #77a98f;
+  --sun: #ffe9a8;
+  --ink: #21312a;
+  --paper: #fffcf5;
+  --card: #ffffffde;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  color: var(--ink);
+  background: linear-gradient(180deg, var(--mist), #eaf8ff 45%, #f8fff0);
+  min-height: 100vh;
+}
+
+.hero {
+  position: relative;
+  min-height: 60vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 2rem 1rem;
+  background-image: url("https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=2000&q=80");
+  background-size: cover;
+  background-position: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #b0e2ff66, #a9d4a966);
+  backdrop-filter: blur(2px);
+}
+
+.hero-content {
+  position: relative;
+  max-width: 760px;
+  background: #fffdf5cc;
+  border: 2px solid #ffffff;
+  border-radius: 18px;
+  padding: 1.6rem;
+  box-shadow: 0 12px 30px #1a2f2f1e;
+}
+
+.tag {
+  font-family: "Patrick Hand", cursive;
+  font-size: 1.2rem;
+  color: var(--forest);
+}
+
+h1,
+h2 {
+  line-height: 1.2;
+}
+
+h1 {
+  margin: 0.4rem 0 0.8rem;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+}
+
+.intro {
+  font-size: 1.05rem;
+  margin-bottom: 1.2rem;
+}
+
+.btn {
+  display: inline-block;
+  background: linear-gradient(120deg, var(--leaf), var(--forest));
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.75rem 1.1rem;
+  border-radius: 999px;
+}
+
+main {
+  width: min(1100px, 92%);
+  margin: 1.8rem auto 3rem;
+}
+
+.how-to-upload,
+.gallery-section {
+  background: var(--card);
+  border: 1px solid #d6ead9;
+  border-radius: 16px;
+  padding: 1.2rem;
+  box-shadow: 0 8px 18px #143d2b14;
+  margin-bottom: 1rem;
+}
+
+.how-to-upload ol {
+  margin-top: 0.8rem;
+  padding-left: 1.1rem;
+  line-height: 1.7;
+}
+
+code {
+  background: #f3f7eb;
+  padding: 0.1rem 0.35rem;
+  border-radius: 8px;
+}
+
+.subtext {
+  margin: 0.4rem 0 1rem;
+  color: #476b58;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid #e8f0df;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px #24412b20;
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.card .meta {
+  padding: 0.75rem;
+}
+
+.card h3 {
+  font-size: 1rem;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #476b58;
+  margin-top: 0.2rem;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: #0f2019d9;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  z-index: 99;
+}
+
+.lightbox img {
+  width: min(92vw, 920px);
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  box-shadow: 0 12px 30px #00000055;
+}
+
+.lightbox p {
+  margin-top: 0.7rem;
+  text-align: center;
+  color: #fff;
+}
+
+.close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border: none;
+  background: #ffffffcc;
+  color: #243932;
+  font-size: 1.5rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+footer {
+  text-align: center;
+  padding: 1.2rem;
+  color: #335245;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: 52vh;
+  }
+
+  .hero-content {
+    padding: 1.2rem;
+  }
+}

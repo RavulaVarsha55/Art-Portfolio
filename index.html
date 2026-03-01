@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Art Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Patrick+Hand&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <p class="tag">Handmade Paintings</p>
+        <h1>My Ghibli-Style Art Portfolio</h1>
+        <p class="intro">
+          A soft gallery for my painting journey. Every new artwork goes into the
+          <code>files/</code> folder and appears here.
+        </p>
+        <a class="btn" href="#gallery">View Gallery</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="how-to-upload">
+        <h2>How I Add New Paintings</h2>
+        <ol>
+          <li>Upload your image file into the <code>files/</code> folder.</li>
+          <li>Add one new item in <code>files/paintings.js</code>.</li>
+          <li>Commit and push to GitHub. The site updates automatically.</li>
+        </ol>
+      </section>
+
+      <section id="gallery" class="gallery-section">
+        <h2>Gallery</h2>
+        <p class="subtext">Click any painting to view larger.</p>
+        <div id="galleryGrid" class="gallery-grid"></div>
+      </section>
+    </main>
+
+    <div id="lightbox" class="lightbox hidden" aria-hidden="true">
+      <button id="closeLightbox" class="close-btn" aria-label="Close image">×</button>
+      <img id="lightboxImg" src="" alt="Expanded painting" />
+      <p id="lightboxCaption"></p>
+    </div>
+
+    <footer>
+      <p>Made with HTML, CSS, JS • Hosted on GitHub Pages</p>
+    </footer>
+
+    <script src="files/paintings.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
