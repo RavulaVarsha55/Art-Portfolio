@@ -20,7 +20,7 @@ window.paintings = [
     date: "Starter Image"
   },
   {
-    src: "files/p1.heic",
+    src: "files/p1.jpg",
     title: "Sky and Hills",
     date: "12/12/2024"
   }
