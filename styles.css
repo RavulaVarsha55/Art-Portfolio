@@ -775,6 +775,13 @@ footer {
   font-weight: 700;
 }
 
+.footer-quote {
+  margin-top: 0.7rem;
+  color: #8a5b8d;
+  font-family: "Caveat", cursive;
+  font-size: 1.35rem;
+}
+
 .spark {
   position: absolute;
   width: 9px;
