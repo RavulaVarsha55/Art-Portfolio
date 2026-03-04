@@ -733,6 +733,21 @@ main {
   color: #86558d;
 }
 
+.love-creating {
+  margin-top: 0.25rem;
+}
+
+.love-creating h3 {
+  color: #a93d84;
+  margin-bottom: 0.45rem;
+}
+
+.love-creating p {
+  margin: 0.15rem 0;
+  color: #86558d;
+  font-weight: 700;
+}
+
 .contact-links {
   margin-top: 0.85rem;
   display: flex;
