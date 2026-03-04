@@ -743,9 +743,20 @@ main {
 }
 
 .love-creating p {
-  margin: 0.15rem 0;
+  margin: 0.25rem 0;
   color: #86558d;
   font-weight: 700;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+}
+
+.love-creating p span {
+  background: #fff3fb;
+  border: 1px solid #f0cbe8;
+  border-radius: 999px;
+  padding: 0.32rem 0.58rem;
 }
 
 .contact-links {
