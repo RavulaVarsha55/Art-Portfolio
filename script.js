@@ -16,9 +16,11 @@ const ratioClasses = ["ratio-a", "ratio-b", "ratio-c"];
 let activeFilter = "All";
 let normalizedPaintings = [];
 
-let audioContext;
-let sparkleTimer = null;
 let sparkleEnabled = true;
+const sparkleTrack = new Audio("files/sparkle-bg.mp3");
+sparkleTrack.loop = true;
+sparkleTrack.volume = 0.28;
+sparkleTrack.preload = "auto";
 
 function normalizePainting(item) {
   const title = item.title || "Untitled";
@@ -193,59 +195,17 @@ document.addEventListener("pointermove", (event) => {
   }
 });
 
-function ensureAudioContext() {
-  if (!audioContext) {
-    audioContext = new window.AudioContext();
-  }
-}
-
-function playSparkleTone() {
-  if (!audioContext) return;
-  const now = audioContext.currentTime;
-  const oscA = audioContext.createOscillator();
-  const oscB = audioContext.createOscillator();
-  const gain = audioContext.createGain();
-
-  oscA.type = "triangle";
-  oscB.type = "sine";
-  oscA.frequency.setValueAtTime(1300 + Math.random() * 500, now);
-  oscB.frequency.setValueAtTime(2100 + Math.random() * 800, now);
-
-  gain.gain.setValueAtTime(0.0001, now);
-  gain.gain.exponentialRampToValueAtTime(0.026, now + 0.03);
-  gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.42);
-
-  oscA.connect(gain);
-  oscB.connect(gain);
-  gain.connect(audioContext.destination);
-
-  oscA.start(now);
-  oscB.start(now);
-  oscA.stop(now + 0.42);
-  oscB.stop(now + 0.42);
-}
-
-function queueSparkles() {
-  if (!sparkleEnabled) return;
-  playSparkleTone();
-  const waitMs = 1600 + Math.random() * 3200;
-  sparkleTimer = window.setTimeout(queueSparkles, waitMs);
-}
-
 function stopSparkles() {
-  if (sparkleTimer) {
-    window.clearTimeout(sparkleTimer);
-    sparkleTimer = null;
-  }
+  sparkleTrack.pause();
 }
 
 async function startSparkles() {
-  ensureAudioContext();
-  if (audioContext.state === "suspended") {
-    await audioContext.resume();
-  }
-  if (!sparkleTimer && sparkleEnabled) {
-    queueSparkles();
+  if (sparkleEnabled) {
+    try {
+      await sparkleTrack.play();
+    } catch (_error) {
+      // Browser blocks autoplay until a user gesture.
+    }
   }
 }
 
