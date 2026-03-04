@@ -33,7 +33,7 @@
 
     <main>
       <section id="about" class="story-panel section-card">
-        <div>
+        <div class="about-content">
           <p class="mini-label">Studio Notes</p>
           <h2>I love colors and I have always been enthusiastic about art.</h2>
           <p>
@@ -57,6 +57,13 @@
           "Life is a great big canvas; throw all the paint you can at it."
         </p>
       </section>
+
+      <section class="color-scroll" aria-label="Scrolling text">
+        <div class="scroll-track">
+          <span>colors make me happy ✨ colors make me happy ✨ colors make me happy ✨</span>
+          <span aria-hidden="true">colors make me happy ✨ colors make me happy ✨ colors make me happy ✨</span>
+        </div>
+      </section>
     </main>
 
     <div id="lightbox" class="lightbox hidden" aria-hidden="true">
@@ -64,6 +71,10 @@
       <img id="lightboxImg" src="" alt="Expanded painting" />
       <p id="lightboxCaption"></p>
     </div>
+
+    <button id="sparkleSoundToggle" class="sound-toggle" type="button" aria-pressed="true">
+      Sparkle Sound: On
+    </button>
 
     <footer>
       <p>Made with HTML, CSS, JS | Hosted on GitHub Pages</p>

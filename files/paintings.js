@@ -20,8 +20,8 @@ window.paintings = [
     date: "Starter Image"
   },
   {
-    src: "files/p1.jpg",
-    title: "Sky and Hills",
+    src: "files/Taylor-Lover.jpg",
+    title: "Taylor Lover Inspired Painting",
     date: "12/12/2024"
   }
 ];

@@ -18,7 +18,7 @@
 
 body {
   font-family: "Nunito", sans-serif;
-  color: var(--ink);
+  color: #7b3f78;
   background:
     radial-gradient(circle at 10% 10%, #ffc4e455 0%, transparent 35%),
     radial-gradient(circle at 85% 2%, #fff0ad66 0%, transparent 30%),
@@ -129,13 +129,14 @@ h3 {
 h1 {
   font-size: clamp(2rem, 4.8vw, 3.7rem);
   margin: 0.4rem 0 0.8rem;
-  color: #6f2f61;
+  color: #b23480;
 }
 
 .intro {
   max-width: 60ch;
   margin: 0 auto;
   font-size: clamp(1rem, 2.1vw, 1.2rem);
+  color: #8f4f90;
 }
 
 .hero-actions {
@@ -199,7 +200,7 @@ main {
   border: 1px solid var(--line);
   border-radius: 20px;
   padding: 1.4rem;
-  box-shadow: 0 16px 24px #12322017;
+  box-shadow: 0 16px 24px #672c681f;
   margin-bottom: 1.2rem;
 }
 
@@ -207,20 +208,29 @@ main {
   display: block;
 }
 
+.about-content {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .mini-label {
   font-family: "Caveat", cursive;
-  color: #8a4b85;
-  font-size: 1.3rem;
+  color: #d44f9f;
+  font-size: 1.45rem;
   margin-bottom: 0.2rem;
 }
 
 .story-panel h2 {
   font-size: clamp(1.45rem, 3vw, 2.1rem);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  color: #b13d87;
 }
 
 .story-panel p {
   line-height: 1.75;
+  font-size: 1.06rem;
+  color: #844f8f;
 }
 
 .gallery-head {
@@ -229,6 +239,7 @@ main {
 
 .gallery-head h2 {
   font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+  color: #b33f91;
 }
 
 .subtext {
@@ -269,6 +280,7 @@ main {
 
 .card h3 {
   font-size: 1rem;
+  color: #9c4b8f;
 }
 
 .card p {
@@ -286,6 +298,28 @@ main {
   color: #6a3d78;
   font-family: "Caveat", cursive;
   font-size: clamp(1.35rem, 2.8vw, 2rem);
+}
+
+.color-scroll {
+  border-radius: 16px;
+  border: 1px solid #f1cce7;
+  background: linear-gradient(90deg, #fff4fb, #ffe9f4, #f6e9ff);
+  overflow: hidden;
+  margin-top: -0.2rem;
+}
+
+.scroll-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 16s linear infinite;
+  white-space: nowrap;
+  font-family: "Caveat", cursive;
+  font-size: clamp(1.2rem, 2.7vw, 1.8rem);
+  color: #ce3c98;
+}
+
+.scroll-track span {
+  padding: 0.65rem 1.2rem;
 }
 
 .lightbox {
@@ -331,6 +365,25 @@ main {
   display: none;
 }
 
+.sound-toggle {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 80;
+  border: 1px solid #f6d0ea;
+  background: linear-gradient(135deg, #fff2fb, #ffe4f4);
+  color: #b53b87;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.58rem 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 8px 18px #6b2e6b2b;
+}
+
+.sound-toggle[aria-pressed="false"] {
+  opacity: 0.75;
+}
+
 footer {
   text-align: center;
   padding: 1.2rem;
@@ -363,6 +416,15 @@ footer {
   }
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 @media (max-width: 920px) {
   .story-panel {
     display: block;
@@ -381,5 +443,12 @@ footer {
 
   .section-card {
     padding: 1rem;
+  }
+
+  .sound-toggle {
+    right: 10px;
+    bottom: 10px;
+    font-size: 0.88rem;
+    padding: 0.5rem 0.75rem;
   }
 }

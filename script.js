@@ -3,6 +3,73 @@ const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightboxImg");
 const lightboxCaption = document.getElementById("lightboxCaption");
 const closeLightbox = document.getElementById("closeLightbox");
+const sparkleSoundToggle = document.getElementById("sparkleSoundToggle");
+
+let audioContext;
+let sparkleTimer = null;
+let sparkleEnabled = true;
+
+function ensureAudioContext() {
+  if (!audioContext) {
+    audioContext = new window.AudioContext();
+  }
+}
+
+function playSparkleTone() {
+  if (!audioContext) return;
+  const now = audioContext.currentTime;
+
+  const oscA = audioContext.createOscillator();
+  const oscB = audioContext.createOscillator();
+  const gain = audioContext.createGain();
+
+  oscA.type = "triangle";
+  oscB.type = "sine";
+  oscA.frequency.setValueAtTime(1300 + Math.random() * 500, now);
+  oscB.frequency.setValueAtTime(2100 + Math.random() * 800, now);
+
+  gain.gain.setValueAtTime(0.0001, now);
+  gain.gain.exponentialRampToValueAtTime(0.028, now + 0.03);
+  gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.45);
+
+  oscA.connect(gain);
+  oscB.connect(gain);
+  gain.connect(audioContext.destination);
+
+  oscA.start(now);
+  oscB.start(now);
+  oscA.stop(now + 0.45);
+  oscB.stop(now + 0.45);
+}
+
+function queueSparkles() {
+  if (!sparkleEnabled) return;
+  playSparkleTone();
+  const waitMs = 1600 + Math.random() * 3200;
+  sparkleTimer = window.setTimeout(queueSparkles, waitMs);
+}
+
+function stopSparkles() {
+  if (sparkleTimer) {
+    window.clearTimeout(sparkleTimer);
+    sparkleTimer = null;
+  }
+}
+
+async function startSparkles() {
+  ensureAudioContext();
+  if (audioContext.state === "suspended") {
+    await audioContext.resume();
+  }
+  if (!sparkleTimer && sparkleEnabled) {
+    queueSparkles();
+  }
+}
+
+function updateSoundButton() {
+  sparkleSoundToggle.textContent = `Sparkle Sound: ${sparkleEnabled ? "On" : "Off"}`;
+  sparkleSoundToggle.setAttribute("aria-pressed", sparkleEnabled ? "true" : "false");
+}
 
 function renderPaintings() {
   if (!Array.isArray(window.paintings) || window.paintings.length === 0) {
@@ -53,3 +120,22 @@ document.addEventListener("keydown", (event) => {
 });
 
 renderPaintings();
+updateSoundButton();
+
+document.addEventListener(
+  "pointerdown",
+  () => {
+    if (sparkleEnabled) startSparkles();
+  },
+  { once: true }
+);
+
+sparkleSoundToggle.addEventListener("click", async () => {
+  sparkleEnabled = !sparkleEnabled;
+  updateSoundButton();
+  if (sparkleEnabled) {
+    await startSparkles();
+  } else {
+    stopSparkles();
+  }
+});
