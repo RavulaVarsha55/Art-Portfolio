@@ -3,27 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Varsha's Art Portfolio</title>
+    <title>Varsha's Canvas World</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito:wght@400;600;700&family=Caveat:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito:wght@400;600;700;800&family=Caveat:wght@600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div id="cursorSparkleLayer" class="cursor-sparkle-layer" aria-hidden="true"></div>
+
     <header class="hero" id="top">
       <div class="overlay"></div>
+      <div class="cloud cloud-a" aria-hidden="true"></div>
+      <div class="cloud cloud-b" aria-hidden="true"></div>
       <div class="floating-orbs" aria-hidden="true">
         <span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
 
-      <div class="hero-content">
+      <div class="hero-content reveal">
+        <p class="eyebrow">Painted With Joy By Varsha</p>
         <h1>Varsha's Canvas World</h1>
+        <p class="intro">I love colors and have always been enthusiastic about turning little moments into paintings.</p>
         <div class="hero-actions">
           <a class="btn" href="#gallery">Enter Gallery</a>
-          <a class="btn btn-secondary" href="#about">About The Artist</a>
+          <a class="btn btn-secondary" href="#videos">Watch Art Videos</a>
         </div>
       </div>
 
@@ -31,7 +37,7 @@
     </header>
 
     <main>
-      <section id="about" class="story-panel section-card">
+      <section id="about" class="story-panel section-card reveal">
         <div class="about-content">
           <p class="mini-label">Studio Notes</p>
           <h2>I love colors and I have always been enthusiastic about art.</h2>
@@ -42,21 +48,60 @@
         </div>
       </section>
 
-      <section id="gallery" class="gallery-section section-card">
+      <section class="featured section-card reveal" id="featured">
+        <div class="featured-media-wrap">
+          <img id="featuredImage" class="featured-media" src="" alt="Featured painting" />
+        </div>
+        <div class="featured-content">
+          <p class="mini-label">Featured Painting Of The Month</p>
+          <h2 id="featuredTitle">Featured Artwork</h2>
+          <p id="featuredDate" class="featured-date"></p>
+          <p id="featuredStory" class="featured-story"></p>
+        </div>
+      </section>
+
+      <section class="color-diary section-card reveal" aria-label="Color diary">
+        <div class="diary-head">
+          <p class="mini-label">Color Diary</p>
+          <h2>Colors and feelings that inspire my paintings</h2>
+        </div>
+        <div class="diary-grid">
+          <article><span class="swatch swatch-pink"></span><h3>Sunset Pink</h3><p>Calm, romantic evenings.</p></article>
+          <article><span class="swatch swatch-blue"></span><h3>Sky Blue</h3><p>Open skies and daydreams.</p></article>
+          <article><span class="swatch swatch-mint"></span><h3>Mint Green</h3><p>Fresh starts and soft wind.</p></article>
+          <article><span class="swatch swatch-gold"></span><h3>Golden Glow</h3><p>Hope, warmth, and sparkle.</p></article>
+        </div>
+      </section>
+
+      <section id="gallery" class="gallery-section section-card reveal">
         <div class="gallery-head">
           <p class="mini-label">Collection</p>
           <h2>Gallery</h2>
-          <p class="subtext">Click any painting to view larger.</p>
+          <p class="subtext">Filter by style. Click any painting to view larger.</p>
         </div>
+        <div id="filterChips" class="filter-chips"></div>
         <div id="galleryGrid" class="gallery-grid"></div>
       </section>
 
-      <section class="quote-strip" aria-label="Artist quote">
-        <p>
-          "Life is a great big canvas; throw all the paint you can at it."
-        </p>
+      <section id="videos" class="videos section-card reveal">
+        <div class="gallery-head">
+          <p class="mini-label">Video Diary</p>
+          <h2>Painting Videos</h2>
+          <p class="subtext">Add your YouTube embeds or local MP4 clips in <code>files/videos.js</code>.</p>
+        </div>
+        <div id="videoGrid" class="video-grid"></div>
       </section>
 
+      <section class="quote-strip reveal" aria-label="Artist quote">
+        <p>"Life is a great big canvas; throw all the paint you can at it."</p>
+      </section>
+
+      <section class="color-scroll reveal" aria-label="Scrolling text">
+        <div class="scroll-track">
+          <span>colors make me happy | colors make me happy | colors make me happy |</span>
+          <span aria-hidden="true">colors make me happy | colors make me happy | colors make me happy |</span>
+        </div>
+      </section>
     </main>
 
     <div id="lightbox" class="lightbox hidden" aria-hidden="true">
@@ -65,13 +110,15 @@
       <p id="lightboxCaption"></p>
     </div>
 
-   
+    <button id="sparkleSoundToggle" class="sound-toggle" type="button" aria-pressed="true">Sparkle Sound: On</button>
+    <a class="back-to-top" href="#top" aria-label="Back to top">Top</a>
 
     <footer>
-      <p>Made with HTML, CSS, JS | Hosted on GitHub Pages</p>
+      <p>Painted with joy by Varsha | HTML CSS JS | Hosted on GitHub Pages</p>
     </footer>
 
     <script src="files/paintings.js"></script>
+    <script src="files/videos.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
