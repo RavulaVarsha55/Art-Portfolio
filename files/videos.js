@@ -17,4 +17,12 @@
     caption: "Layering colors"
   }
 */
-window.videos = [];
+window.videos = [
+
+  {
+    type: "youtube",
+    src: "https://youtube.com/shorts/VZXt-lNed4o?si=QtlPMZ5ieIK694yg",
+    title: "Taylor Swift Lover Inspired Painting",
+    caption: "Eras Tour inspired painting"
+  }
+];
