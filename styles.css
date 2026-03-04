@@ -23,10 +23,9 @@ html {
 body {
   font-family: "Nunito", sans-serif;
   color: var(--ink);
-  background:
-    radial-gradient(circle at 12% 8%, #ffc6e65e 0%, transparent 30%),
-    radial-gradient(circle at 90% 4%, #fff2b05c 0%, transparent 26%),
-    linear-gradient(180deg, #ffddec 0%, #eee4ff 34%, #d8f2ff 65%, #f2ffe8 100%);
+  background: linear-gradient(-45deg, #ffd6e7, #d6f0ff, #e6ffd6, #fff3c6);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -36,6 +35,48 @@ body {
   inset: 0;
   pointer-events: none;
   z-index: 120;
+}
+
+.bg-blobs {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(26px);
+  opacity: 0.34;
+  animation: blobFloat 16s ease-in-out infinite;
+}
+
+.blob-a {
+  width: 260px;
+  height: 260px;
+  background: #ff9ecf;
+  left: -40px;
+  top: 15%;
+}
+
+.blob-b {
+  width: 300px;
+  height: 300px;
+  background: #a9dcff;
+  right: -60px;
+  top: 35%;
+  animation-delay: 2.2s;
+}
+
+.blob-c {
+  width: 240px;
+  height: 240px;
+  background: #c9b2ff;
+  left: 35%;
+  bottom: -60px;
+  animation-delay: 1.2s;
 }
 
 .hero {
@@ -508,18 +549,24 @@ main {
   background: linear-gradient(180deg, #fff8ff, #fffef7);
   border: 1px solid #f0d8ea;
   cursor: pointer;
-  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px) rotate(-0.4deg);
-  box-shadow: 0 16px 24px #5f287029;
+  transform: translateY(-6px) rotate(-0.4deg);
+  box-shadow: 0 0 0 1px #ffd3ef, 0 0 26px #ff96d666, 0 18px 26px #5f287033;
+  border-color: #ffbde2;
 }
 
 .card img {
   width: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.35s ease;
+}
+
+.card:hover img {
+  transform: scale(1.07);
 }
 
 .card.ratio-a img {
@@ -830,6 +877,18 @@ footer {
   }
 }
 
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 @keyframes drift {
   0%,
   100% {
@@ -885,6 +944,16 @@ footer {
   100% {
     transform: scale(1.6) rotate(45deg);
     opacity: 0;
+  }
+}
+
+@keyframes blobFloat {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-30px) translateX(14px) scale(1.08);
   }
 }
 

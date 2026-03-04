@@ -188,9 +188,9 @@ function createPointerSpark(x, y) {
 let lastSparkTime = 0;
 document.addEventListener("pointermove", (event) => {
   const now = Date.now();
-  if (now - lastSparkTime < 70) return;
+  if (now - lastSparkTime < 45) return;
   lastSparkTime = now;
-  if (Math.random() < 0.4) {
+  if (Math.random() < 0.7) {
     createPointerSpark(event.clientX, event.clientY);
   }
 });
