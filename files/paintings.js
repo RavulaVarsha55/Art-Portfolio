@@ -10,7 +10,7 @@ window.paintings = [
     date: "12/12/2024" 
   },
   {
-    src: "files/Lotus-Line-Sketch.JPG",
+    src: "files/Lotus-Line-Sketch.jpg",
     title: "Lotus Line Sketch",
     date: "12/12/2024" 
   }
