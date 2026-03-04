@@ -1,12 +1,13 @@
 :root {
-  --ink: #18271f;
-  --forest: #2d5c45;
-  --leaf: #4e8866;
-  --field: #7cbf58;
-  --mist: #f2fbff;
-  --card: #ffffffe8;
-  --sun: #ffe8ac;
-  --line: #d7e9d2;
+  --ink: #3c1f47;
+  --pink: #ff72b4;
+  --rose: #ff9ccf;
+  --sky: #9ed9ff;
+  --mint: #9be6c6;
+  --sun: #ffe58f;
+  --lavender: #c8b7ff;
+  --card: #fffffff0;
+  --line: #f4d5ec;
 }
 
 * {
@@ -19,8 +20,9 @@ body {
   font-family: "Nunito", sans-serif;
   color: var(--ink);
   background:
-    radial-gradient(circle at 85% 5%, #fef8ce 0%, #fef8ce55 25%, transparent 50%),
-    linear-gradient(180deg, #dbf3ff 0%, #ebfff4 42%, #f7ffef 100%);
+    radial-gradient(circle at 10% 10%, #ffc4e455 0%, transparent 35%),
+    radial-gradient(circle at 85% 2%, #fff0ad66 0%, transparent 30%),
+    linear-gradient(180deg, #ffd8ea 0%, #e3d9ff 38%, #ccf4ff 66%, #eefee7 100%);
   min-height: 100vh;
 }
 
@@ -33,7 +35,7 @@ body {
   padding: 2rem 1rem 5rem;
   overflow: hidden;
   background-image:
-    linear-gradient(180deg, #cde7ff3b 0%, #c8efb766 65%, #78ab597a 100%),
+    linear-gradient(180deg, #ffd0e659 0%, #ffd7b94f 55%, #8cd9957a 100%),
     url("files/hero-bg.jpg"),
     url("https://wallpapercave.com/wp/wp5325485.jpg");
   background-size: cover;
@@ -43,7 +45,7 @@ body {
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, #99d8ff33 0%, #d9f8cd4d 100%);
+  background: linear-gradient(180deg, #ff9fc133 0%, #c1b7ff2e 55%, #b9ffd63b 100%);
   backdrop-filter: blur(1px);
 }
 
@@ -55,12 +57,13 @@ body {
 
 .floating-orbs span {
   position: absolute;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #f5ffd7b8;
-  box-shadow: 0 0 18px #f5ffd799;
-  animation: drift 7s ease-in-out infinite;
+  width: 16px;
+  height: 16px;
+  rotate: 45deg;
+  background: #fff7cf;
+  box-shadow: 0 0 16px #fff4a8;
+  clip-path: polygon(50% 0%, 66% 34%, 100% 50%, 66% 66%, 50% 100%, 34% 66%, 0% 50%, 34% 34%);
+  animation: drift 7s ease-in-out infinite, twinkle 1.7s ease-in-out infinite;
 }
 
 .floating-orbs span:nth-child(1) {
@@ -80,22 +83,40 @@ body {
   animation-delay: 2.2s;
 }
 
+.floating-orbs span:nth-child(4) {
+  left: 26%;
+  top: 34%;
+  width: 11px;
+  height: 11px;
+  animation-delay: 0.9s;
+}
+
+.floating-orbs span:nth-child(5) {
+  left: 56%;
+  top: 39%;
+  width: 12px;
+  height: 12px;
+  animation-delay: 1.3s;
+}
+
+.floating-orbs span:nth-child(6) {
+  left: 88%;
+  top: 18%;
+  width: 10px;
+  height: 10px;
+  animation-delay: 2.8s;
+}
+
 .hero-content {
   position: relative;
   z-index: 2;
   width: min(840px, 94%);
-  background: #fbfff5d9;
+  background: #fff9ffd9;
   border: 1px solid #ffffff;
   border-radius: 24px;
   padding: 1.8rem;
-  box-shadow: 0 24px 40px #1324182f;
+  box-shadow: 0 24px 40px #5f24522e;
   backdrop-filter: blur(4px);
-}
-
-.tag {
-  font-family: "Caveat", cursive;
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  color: #35664d;
 }
 
 h1,
@@ -108,7 +129,7 @@ h3 {
 h1 {
   font-size: clamp(2rem, 4.8vw, 3.7rem);
   margin: 0.4rem 0 0.8rem;
-  color: #173727;
+  color: #6f2f61;
 }
 
 .intro {
@@ -132,21 +153,21 @@ h1 {
   font-weight: 700;
   text-decoration: none;
   color: #fff;
-  background: linear-gradient(135deg, #60a173, #3f7859);
+  background: linear-gradient(135deg, #ff78b8, #b077ff);
   border: 1px solid #ffffff70;
-  box-shadow: 0 6px 16px #13331e24;
+  box-shadow: 0 6px 16px #61245533;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 18px #13331e33;
+  box-shadow: 0 12px 18px #61245540;
 }
 
 .btn-secondary {
-  color: #1f4733;
-  background: #f2ffe5;
-  border-color: #d8eec8;
+  color: #5a347c;
+  background: #ffeefe;
+  border-color: #f5cbec;
 }
 
 .hero-grass {
@@ -157,13 +178,13 @@ h1 {
   z-index: 1;
   height: 90px;
   background:
-    radial-gradient(circle at 8% 100%, #87c86a 0 55%, transparent 56%),
-    radial-gradient(circle at 20% 100%, #76b95f 0 56%, transparent 57%),
-    radial-gradient(circle at 34% 100%, #8acc74 0 58%, transparent 59%),
-    radial-gradient(circle at 47% 100%, #6eb157 0 58%, transparent 59%),
-    radial-gradient(circle at 62% 100%, #85c66c 0 58%, transparent 59%),
-    radial-gradient(circle at 77% 100%, #71b35d 0 58%, transparent 59%),
-    radial-gradient(circle at 92% 100%, #8fd076 0 56%, transparent 57%);
+    radial-gradient(circle at 8% 100%, #89cb79 0 55%, transparent 56%),
+    radial-gradient(circle at 20% 100%, #74be89 0 56%, transparent 57%),
+    radial-gradient(circle at 34% 100%, #8fd57c 0 58%, transparent 59%),
+    radial-gradient(circle at 47% 100%, #75b9b4 0 58%, transparent 59%),
+    radial-gradient(circle at 62% 100%, #91c875 0 58%, transparent 59%),
+    radial-gradient(circle at 77% 100%, #7ac28c 0 58%, transparent 59%),
+    radial-gradient(circle at 92% 100%, #97d589 0 56%, transparent 57%);
 }
 
 main {
@@ -183,14 +204,12 @@ main {
 }
 
 .story-panel {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 1.1rem;
+  display: block;
 }
 
 .mini-label {
   font-family: "Caveat", cursive;
-  color: #4d7f66;
+  color: #8a4b85;
   font-size: 1.3rem;
   margin-bottom: 0.2rem;
 }
@@ -204,24 +223,6 @@ main {
   line-height: 1.75;
 }
 
-.stats-grid {
-  display: grid;
-  gap: 0.7rem;
-  align-content: start;
-}
-
-.stats-grid article {
-  background: #f9fff0;
-  border: 1px solid #dff0d6;
-  border-radius: 14px;
-  padding: 0.85rem;
-}
-
-.stats-grid h3 {
-  font-size: 1.05rem;
-  margin-bottom: 0.3rem;
-}
-
 .gallery-head {
   margin-bottom: 1rem;
 }
@@ -232,7 +233,7 @@ main {
 
 .subtext {
   margin-top: 0.35rem;
-  color: #375e49;
+  color: #6b4d87;
 }
 
 .gallery-grid {
@@ -244,15 +245,15 @@ main {
 .card {
   border-radius: 14px;
   overflow: hidden;
-  background: #fffef7;
-  border: 1px solid #e7efd6;
+  background: linear-gradient(180deg, #fff8ff, #fffef7);
+  border: 1px solid #f0d8ea;
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card:hover {
   transform: translateY(-5px) rotate(-0.35deg);
-  box-shadow: 0 16px 22px #0f2f1b20;
+  box-shadow: 0 16px 22px #5f287029;
 }
 
 .card img {
@@ -272,17 +273,17 @@ main {
 
 .card p {
   font-size: 0.9rem;
-  color: #476b58;
+  color: #7c5c8f;
   margin-top: 0.2rem;
 }
 
 .quote-strip {
   border-radius: 18px;
   padding: 1.3rem;
-  background: linear-gradient(90deg, #eefde8, #e8f5ff, #fef8dc);
-  border: 1px solid #dbe9cb;
+  background: linear-gradient(90deg, #ffe6f4, #ece4ff, #e4f8ff, #fef5cd);
+  border: 1px solid #efd6ea;
   text-align: center;
-  color: #284639;
+  color: #6a3d78;
   font-family: "Caveat", cursive;
   font-size: clamp(1.35rem, 2.8vw, 2rem);
 }
@@ -333,7 +334,7 @@ main {
 footer {
   text-align: center;
   padding: 1.2rem;
-  color: #335245;
+  color: #7a4f74;
 }
 
 @keyframes drift {
@@ -348,9 +349,23 @@ footer {
   }
 }
 
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.8) rotate(45deg);
+    filter: brightness(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(45deg);
+    filter: brightness(1.2);
+  }
+}
+
 @media (max-width: 920px) {
   .story-panel {
-    grid-template-columns: 1fr;
+    display: block;
   }
 }
 
