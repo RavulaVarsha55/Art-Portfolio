@@ -21,7 +21,7 @@ window.videos = [
 
   {
     type: "youtube",
-    src: "https://youtube.com/shorts/VZXt-lNed4o?si=QtlPMZ5ieIK694yg",
+    src: "https://www.youtube.com/embed/VZXt-lNed4o",
     title: "Taylor Swift Lover Inspired Painting",
     caption: "Eras Tour inspired painting"
   }
