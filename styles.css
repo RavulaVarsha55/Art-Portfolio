@@ -471,6 +471,45 @@ main {
   color: #85578c;
 }
 
+.color-lab-controls {
+  margin-top: 0.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+#color-lab {
+  text-align: center;
+  background: linear-gradient(110deg, #fff7fd, #eef8ff, #fff7e8);
+}
+
+#color-lab label {
+  color: #8d4f88;
+  font-weight: 700;
+}
+
+#color-lab input {
+  margin: 0.2rem;
+  width: 50px;
+  height: 40px;
+  border: 1px solid #efcce9;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+}
+
+#resultBox {
+  width: 170px;
+  height: 170px;
+  margin: 1rem auto 0.2rem;
+  border-radius: 12px;
+  border: 2px solid #e8cfe6;
+  box-shadow: 0 10px 20px #65316522;
+  transition: background 0.3s ease;
+}
+
 .swatch {
   width: 22px;
   height: 22px;
@@ -996,5 +1035,14 @@ footer {
   .top-nav a {
     font-size: 0.78rem;
     padding: 0.3rem 0.5rem;
+  }
+
+  .color-lab-controls {
+    gap: 0.45rem;
+  }
+
+  #resultBox {
+    width: 145px;
+    height: 145px;
   }
 }

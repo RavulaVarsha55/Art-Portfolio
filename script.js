@@ -11,6 +11,10 @@ const featuredStory = document.getElementById("featuredStory");
 const filterChips = document.getElementById("filterChips");
 const videoGrid = document.getElementById("videoGrid");
 const cursorSparkleLayer = document.getElementById("cursorSparkleLayer");
+const color1Input = document.getElementById("color1");
+const color2Input = document.getElementById("color2");
+const resultBox = document.getElementById("resultBox");
+const mixColorsBtn = document.getElementById("mixColorsBtn");
 
 const ratioClasses = ["ratio-a", "ratio-b", "ratio-c"];
 let activeFilter = "All";
@@ -214,6 +218,19 @@ function updateSoundButton() {
   sparkleSoundToggle.setAttribute("aria-pressed", sparkleEnabled ? "true" : "false");
 }
 
+function hexToRgb(hex) {
+  return hex.match(/\w\w/g).map((x) => parseInt(x, 16));
+}
+
+function mixColors() {
+  if (!color1Input || !color2Input || !resultBox) return;
+  const rgb1 = hexToRgb(color1Input.value);
+  const rgb2 = hexToRgb(color2Input.value);
+  const mixed = rgb1.map((v, i) => Math.floor((v + rgb2[i]) / 2));
+  const color = `rgb(${mixed[0]}, ${mixed[1]}, ${mixed[2]})`;
+  resultBox.style.background = color;
+}
+
 renderPaintings();
 renderVideos();
 updateSoundButton();
@@ -240,3 +257,8 @@ sparkleSoundToggle.addEventListener("click", async () => {
     stopSparkles();
   }
 });
+
+if (mixColorsBtn) {
+  mixColorsBtn.addEventListener("click", mixColors);
+  mixColors();
+}
