@@ -128,6 +128,28 @@ body {
   pointer-events: none;
 }
 
+.top-nav {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  z-index: 6;
+  display: flex;
+  gap: 0.62rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.top-nav a {
+  text-decoration: none;
+  color: #8b3f7f;
+  font-weight: 700;
+  background: #fff5fccc;
+  border: 1px solid #f0cbe8;
+  border-radius: 999px;
+  padding: 0.36rem 0.64rem;
+  box-shadow: 0 4px 12px #6d2d6322;
+}
+
 .floating-orbs span {
   position: absolute;
   width: 16px;
@@ -587,8 +609,20 @@ main {
   border: 1px solid #efd6ea;
   text-align: center;
   color: #6a3d78;
+}
+
+.quote-strip blockquote {
   font-family: "Caveat", cursive;
-  font-size: clamp(1.35rem, 2.8vw, 2rem);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: #8f2f80;
+}
+
+.quote-strip cite {
+  display: block;
+  margin-top: 0.35rem;
+  color: #7f5d8c;
+  font-style: normal;
+  font-weight: 700;
 }
 
 .color-scroll {
@@ -599,11 +633,42 @@ main {
   margin-top: -0.2rem;
 }
 
+.contact-panel {
+  text-align: center;
+  background: linear-gradient(100deg, #fff5fc, #f3ecff, #eefbff);
+}
+
+.contact-panel h2 {
+  color: #b13d87;
+  margin-bottom: 0.3rem;
+}
+
+.contact-panel p {
+  color: #86558d;
+}
+
+.contact-links {
+  margin-top: 0.85rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.contact-links a {
+  text-decoration: none;
+  color: #8f4485;
+  font-weight: 700;
+  background: #fff3fc;
+  border: 1px solid #f0cbe8;
+  border-radius: 999px;
+  padding: 0.5rem 0.88rem;
+}
+
 .scroll-track {
   display: flex;
-  width: max-content;
-  animation: marquee 16s linear infinite;
-  white-space: nowrap;
+  width: 100%;
+  justify-content: center;
   font-family: "Caveat", cursive;
   font-size: clamp(1.2rem, 2.7vw, 1.8rem);
   color: #ce3c98;
@@ -694,6 +759,20 @@ footer {
   text-align: center;
   padding: 1.2rem;
   color: #7a4f74;
+}
+
+.footer-socials {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.footer-socials a {
+  text-decoration: none;
+  color: #b13d87;
+  font-weight: 700;
 }
 
 .spark {
@@ -800,5 +879,16 @@ footer {
   .back-to-top {
     font-size: 0.84rem;
     padding: 0.5rem 0.7rem;
+  }
+
+  .top-nav {
+    top: 10px;
+    right: 10px;
+    gap: 0.4rem;
+  }
+
+  .top-nav a {
+    font-size: 0.78rem;
+    padding: 0.3rem 0.5rem;
   }
 }
